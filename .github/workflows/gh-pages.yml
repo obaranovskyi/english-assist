@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-#     steps:
+    steps:
 #     - name: Checkout
 #       uses: actions/checkout@v2
 #
@@ -29,8 +29,8 @@ jobs:
 #     - name: Build ngh
 #       run: npx ngh --dir=public
 #
-#     - name: Deploy
-#       if: success()
-#       uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+    - name: Deploy
+      if: success()
+      uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 #       with:
 #         base_href: public
