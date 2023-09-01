@@ -1,1 +1,0 @@
-{"ast":null,"code":"export const MENU_ITEMS = [{\n  label: 'words',\n  isDisabled: false,\n  isActive: true,\n  path: 'words'\n}, {\n  label: 'test',\n  isDisabled: false,\n  isActive: false,\n  path: 'test'\n}, {\n  label: 'cache',\n  isDisabled: false,\n  isActive: false,\n  path: 'cache'\n}];","map":null,"metadata":{},"sourceType":"module"}

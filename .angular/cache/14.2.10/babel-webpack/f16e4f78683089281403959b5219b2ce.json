@@ -1,1 +1,0 @@
-{"ast":null,"code":"export const NOTIFICATION_CONFIG = {\n  horizontalPosition: 'start',\n  verticalPosition: 'bottom',\n  duration: 3000\n};","map":null,"metadata":{},"sourceType":"module"}
