@@ -13,6 +13,7 @@ import { WordsService } from '../../words.service';
 export class UploadComponent {
   panelOpenState = false;
   words: string = '';
+  placeholder = `[{ "originalValue": "text", "translation": "текст", "wordId": 1 }]`
 
   constructor(
     public readonly wordsService: WordsService,

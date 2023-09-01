@@ -1,18 +1,24 @@
 <div class="main-container">
-  <div class="upload-json-container">Please upload words in a JSON format. Here is an example:
-    <span class="json-example">[{{'{'}} "originalValue": "text", "translation": "текст", "wordId": 1 }]</span>
-  </div>
+  <!-- <div class="upload-json-container">Please upload words in a JSON format. Here is an example: -->
+  <!--   <span class="json-example">[{{'{'}} "originalValue": "text", "translation": "текст", "wordId": 1 }]</span> -->
+  <!-- </div> -->
   <mat-expansion-panel
     [(expanded)]="panelOpenState"
     class="upload-card">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Upload words.
+        Upload words:
       </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-form-field class="upload-textarea" appearance="fill">
-      <mat-label>Enter words:</mat-label>
-      <textarea matInput name="words" placeholder="Use proposed JSON format" [(ngModel)]="words" rows="10"></textarea>
+      <mat-label>Enter words in JSON format:</mat-label>
+      <textarea
+        matInput
+        name="words"
+        [placeholder]="placeholder"
+        [(ngModel)]="words"
+        rows="10">
+      </textarea>
     </mat-form-field>
     <button mat-stroked-button color="primary" [disabled]="!words || !isJsonValid" (click)="upload()">Upload</button>
     <span class="error-message" *ngIf="!!words && !isJsonValid">JSON is invalid</span>

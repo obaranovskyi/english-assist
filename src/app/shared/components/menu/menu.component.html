@@ -1,6 +1,10 @@
 <ul class="menu">
     <li *ngFor="let menuItem of menuItems" class="menu-item">
-        <span [routerLink]="menuItem.path" routerLinkActive="active" [class.disabled]="!((wordsService.words$ | async)?.length) && (menuItem.path !== 'home' && menuItem.path !== 'cache' && menuItem.path !== 'words')">
+        <span
+          [routerLink]="menuItem.path"
+          routerLinkActive="active"
+          [class.disabled]="!((wordsService.words$ | async)?.length) && (menuItem.path !== 'home' && menuItem.path !== 'cache' && menuItem.path !== 'words')"
+        >
           {{menuItem.label}}
         </span>
     </li>
