@@ -1,0 +1,11 @@
+<div class="main-container">
+  <div class="row">
+    <button mat-button color="primary" (click)="mergeAll()">Merge All</button>
+  </div>
+  <div class="row">
+    <ea-add-cache></ea-add-cache>
+  </div>
+  <div class="row">
+    <ea-cache-grid [data]="(cacheService.cache$ | async) || []"></ea-cache-grid>
+  </div>
+</div>

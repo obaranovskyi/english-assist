@@ -1,0 +1,25 @@
+<div class="main-container">
+  <div class="row upload-area">
+    <ea-upload></ea-upload>
+  </div>
+  <div class="row reset-button">
+      <button mat-button color="primary" (click)="cleanAllWords()">Clean all words</button>
+  </div>
+  <div class="row add-form">
+    <ea-add-word></ea-add-word>
+  </div>
+  <div class="row update-form" *ngIf="wordToUpdate">
+    <ea-update-word
+      [wordToUpdate]="wordToUpdate"
+      (cancel)="hideUpdateForm()"
+      (hideForm)="hideUpdateForm()"
+    ></ea-update-word>
+  </div>
+  <div class="row">
+    <ea-grid
+      [data]="(wordsService.words$ | async) || []"
+      (removeWord)="removeWord($event)"
+      (updateWord)="showUpdateForm($event)"
+    ></ea-grid>
+  </div>
+</div>

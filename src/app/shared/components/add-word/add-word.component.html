@@ -1,0 +1,20 @@
+<div class="main-container">
+  <mat-expansion-panel
+    [(expanded)]="panelOpenState">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Add word
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-form-field class="input-width" appearance="fill">
+      <mat-label>Original value:</mat-label>
+      <input matInput name="originalvalue" [(ngModel)]="originalValue"/>
+    </mat-form-field>
+    <mat-form-field class="input-width" appearance="fill">
+      <mat-label>Translation:</mat-label>
+      <input matInput name="translation" [(ngModel)]="translation"/>
+    </mat-form-field>
+    <button mat-stroked-button color="primary" class="right-margin" [disabled]="!originalValue || !translation" (click)="add()">Update</button>
+    <button mat-stroked-button color="warn" (click)="cancel()">Cancel</button>
+  </mat-expansion-panel>
+</div>

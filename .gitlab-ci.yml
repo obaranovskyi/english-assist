@@ -1,0 +1,17 @@
+image: node:16.13.0
+
+pages:
+  cache:
+    paths:
+    - node_modules/
+
+  stage: deploy
+  script:
+  - npm install -g @angular/cli@12.2.17
+  - npm install
+  - ng build --base-href=/english-assist/
+  artifacts:
+    paths:
+    - public
+  only:
+  - main

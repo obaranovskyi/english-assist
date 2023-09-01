@@ -1,0 +1,21 @@
+.menu {
+  display: flex;
+  list-style: none;
+  font-size: 16px;
+
+  .menu-item {
+    color: #5e5e5e;
+    cursor: pointer;
+    padding: 10px;
+
+    .disabled {
+      pointer-events: none;
+      color: lightgrey;
+    }
+
+    .active {
+      color: #1976d2;
+      font-weight: bold;
+    }
+  }
+}

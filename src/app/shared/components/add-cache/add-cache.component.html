@@ -1,0 +1,15 @@
+<div class="main-container">
+  <mat-expansion-panel
+    [(expanded)]="panelOpenState">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Store in cache.
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-form-field class="upload-textarea" appearance="fill">
+      <mat-label>Enter cache name:</mat-label>
+      <input matInput name="words" [(ngModel)]="cacheName"/>
+    </mat-form-field>
+    <button mat-stroked-button color="primary" [disabled]="!cacheName.length" (click)="addCache()">Cache</button>
+  </mat-expansion-panel>
+</div>

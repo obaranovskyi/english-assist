@@ -1,0 +1,25 @@
+.main-container {
+  .upload-json-container {
+    margin: 15px;
+  }
+
+  .json-example {
+    color: blueviolet;
+    background: aliceblue;
+    font-style: italic;
+  }
+
+  .upload-card {
+    margin-top: 15px;
+  }
+
+  .upload-textarea {
+    width: 100%;
+  }
+
+  .error-message {
+    padding-left: 15px;
+    font-size: 14px;
+    color: red;
+  }
+}

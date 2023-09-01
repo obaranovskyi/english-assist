@@ -1,0 +1,85 @@
+<mat-expansion-panel
+  [(expanded)]="configPanelOpenState"
+  class="config-panel">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Configure test
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+    <div class="config-section">
+      <mat-form-field appearance="fill">
+        <mat-label>Number of words per test</mat-label>
+        <mat-select [(ngModel)]="numberOfWordsPerPage" (ngModelChange)="reloadTest(true)">
+          <mat-option *ngFor="let option of [5,10,15,20,25,30,50,100]" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Test number</mat-label>
+        <mat-select [(ngModel)]="currentTest" (ngModelChange)="reloadTest()">
+          <mat-option *ngFor="let option of tests" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Number of correct answers per word</mat-label>
+        <mat-select [(ngModel)]="numberOfCorrectAnswersPerWord" (ngModelChange)="reloadTest()">
+          <mat-option *ngFor="let option of [1,2,3,5,10]" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+</mat-expansion-panel>
+
+
+<div class="reset-test">
+    <button mat-button color="primary" (click)="resetTest()">Reset test</button>
+</div>
+
+<mat-card *ngIf="currentWord">
+  <mat-card-title>{{ currentWord.translation }}</mat-card-title>
+
+  <mat-form-field class="value-input" appearance="fill">
+    <mat-label>Enter translation</mat-label>
+    <input matInput [(ngModel)]="enteredValue" (keyup)="checkEnteredValue($event)">
+  </mat-form-field>
+
+  <mat-card-actions class="buttons-and-budges">
+    <button mat-button color="primary" (click)="handleDefaultSuccess()">I know the word</button>
+    <button mat-button color="warn" (click)="handleDefaultError()">I don't know the word</button>
+    <span class="error">
+      <mat-icon [matBadge]="errorCount" matBadgeColor="warn">error</mat-icon>
+    </span>
+    <span class="success">
+      <mat-icon [matBadge]="successCount" matBadgeColor="primary">check</mat-icon>
+    </span>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card
+  class="previous-result"
+  [class.success]="previousResults.length && lastPreviousResult.isCorrect"
+  [class.error]="previousResults.length && !lastPreviousResult.isCorrect"
+  *ngIf="previousResults.length && currentWord">
+  <div class="header">{{ lastPreviousResult.translation }}</div>
+  <mat-divider inset></mat-divider>
+  <div class="content">
+    <div class="entered">➜ {{ lastPreviousResult.enteredValue }}</div>
+    <div class="answer">✔ {{ lastPreviousResult.correctValue }}</div>
+    <div>
+      <span [matBadge]="currentTestWords.length + (currentWord && 1 || 0)" matBadgeOverlap="false" matBadgeColor="primary">
+        Words left
+      </span>
+
+    </div>
+  </div>
+</mat-card>
+
+<div class="row test-results" *ngIf="!currentWord">
+  <ea-result-grid [data]="previousResults"></ea-result-grid>
+</div>
