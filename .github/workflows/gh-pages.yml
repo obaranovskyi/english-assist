@@ -26,6 +26,9 @@ jobs:
     - name: Build
       run: ng build --base-href=https://obaranovskyi.github.io/english-assist/
 
+    - name: Build ngh
+      run: npx ngh --dir=public
+
     - name: Deploy
       if: success()
       uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
