@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { ReplaySubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { CacheModel, WordModel } from './models';
 import { WordsService } from './words.service';
 
 @Injectable()
 export class CacheService {
-  private readonly cacheRplSubj: ReplaySubject<
-    CacheModel[]
-  > = new ReplaySubject(1);
-  cache$ = this.cacheRplSubj.asObservable();
+  cacheBhvSubj: BehaviorSubject<CacheModel[]> = new BehaviorSubject([] as CacheModel[]);
+  cache$ = this.cacheBhvSubj.asObservable();
 
   constructor(public readonly wordsService: WordsService) {
     this.reloadCache();
@@ -92,6 +90,6 @@ export class CacheService {
   }
 
   private setCache(cache: CacheModel[]) {
-    this.cacheRplSubj.next(cache);
+    this.cacheBhvSubj.next(cache);
   }
 }
