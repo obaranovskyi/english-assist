@@ -53,10 +53,10 @@
     <button mat-button color="primary" (click)="handleDefaultSuccess()">I know the word</button>
     <button mat-button color="warn" (click)="handleDefaultError()">I don't know the word</button>
     <span class="error">
-      <mat-icon [matBadge]="errorCount" matBadgeColor="warn">error</mat-icon>
+      <mat-icon [matBadge]="errorCount" class="error-icon-color" matBadgeColor="warn">error</mat-icon>
     </span>
     <span class="success">
-      <mat-icon [matBadge]="successCount" matBadgeColor="primary">check</mat-icon>
+      <mat-icon [matBadge]="successCount" class="success-icon-color" matBadgeColor="primary">check</mat-icon>
     </span>
   </mat-card-actions>
 </mat-card>

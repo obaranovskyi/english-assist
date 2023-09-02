@@ -12,6 +12,21 @@ mat-card-title {
   font-size: 20px;
 }
 
+::ng-deep {
+  mat-icon {
+    &.error-icon-color {
+      .mat-badge-content {
+      background: #f67aa1;
+      }
+    }
+    &.success-icon-color {
+      .mat-badge-content {
+        background: #21a292;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .config-section {
     flex-direction: column;
@@ -45,14 +60,12 @@ mat-card-title {
   }
 
   &.success {
+    background: #90ded4;
     color: #0f5132;
-    border: 1px solid #0f5132;
-    box-shadow: none;
   }
   &.error {
+    background: #ffc6d8;
     color: #842029;
-    border: 1px solid #842029;
-    box-shadow: none;
   }
 }
 

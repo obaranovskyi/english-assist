@@ -1,0 +1,17 @@
+<div class="main-container">
+  <mat-card>
+    <mat-card-content>
+      <section class="settings">
+        <h4 class="settings-header">Settings:</h4>
+        <div class="settings-body">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="checked"
+            (ngModelChange)="onSettingsUpdate($event)"
+            > Apply the first word list on the initial load
+          </mat-checkbox>
+        </div>
+      </section>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -29,12 +29,14 @@ export class CacheService {
 
   reloadCache() {
     const rawValues = this.allValues();
-    const caches = rawValues.map((element) => {
-      const parsedCache = JSON.parse(element);
+    const caches = rawValues
+    .map(element => JSON.parse(element))
+    .filter((wordGroup: object[]) => 'name' in wordGroup)
+    .map(wordGroup => {
       return {
-        name: parsedCache.name,
-        value: parsedCache.value,
-        date: Number(parsedCache.date),
+        name: wordGroup.name,
+        value: wordGroup.value,
+        date: Number(wordGroup.date),
       };
     });
 

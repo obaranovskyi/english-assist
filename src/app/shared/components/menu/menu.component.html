@@ -3,7 +3,7 @@
         <span
           [routerLink]="menuItem.path"
           routerLinkActive="active"
-          [class.disabled]="!((wordsService.words$ | async)?.length) && (menuItem.path !== 'home' && menuItem.path !== 'cache' && menuItem.path !== 'words')"
+          [class.disabled]="!isActive((wordsService.words$ | async)?.length || 0, menuItem.path)"
         >
           {{menuItem.label}}
         </span>

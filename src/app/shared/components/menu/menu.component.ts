@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 import { WordsService } from '../../words.service';
-
 import { MENU_ITEMS } from './constants';
 import { MenuModel } from './models';
+
 
 @Component({
   selector: 'ea-menu',
@@ -13,5 +13,13 @@ import { MenuModel } from './models';
 export class MenuComponent {
   menuItems: MenuModel[] = MENU_ITEMS;
 
-  constructor(public readonly wordsService: WordsService) {}
+  constructor(
+    public readonly wordsService: WordsService
+  ) {}
+
+  isActive(wordsLength: number, path: string): boolean {
+    if (path === 'test') return Boolean(wordsLength);
+
+    return true;
+  }
 }
