@@ -27,7 +27,7 @@ export class CacheService {
 
   reloadCache() {
     const rawValues = this.allValues();
-    const caches = rawValues
+    const caches = rawValues.reverse()
     .map(element => JSON.parse(element))
     .filter((wordGroup: object[]) => 'name' in wordGroup)
     .map(wordGroup => {

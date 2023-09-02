@@ -9,6 +9,10 @@
     cursor: pointer;
     padding: 10px;
 
+    .underline {
+      text-decoration: underline;
+    }
+
     .disabled {
       pointer-events: none;
       color: lightgrey;

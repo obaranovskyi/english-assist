@@ -1,11 +1,14 @@
 <ul class="menu">
-    <li *ngFor="let menuItem of menuItems" class="menu-item">
+    <li
+      *ngFor="let menuItem of menuItems"
+      class="menu-item">
         <span
           [routerLink]="menuItem.path"
           routerLinkActive="active"
           [class.disabled]="!isActive((wordsService.words$ | async)?.length || 0, menuItem.path)"
+          [class.underline]="isUnderline(menuItem)"
         >
-          {{menuItem.label}}
+          {{ menuItem.label }}
         </span>
     </li>
 </ul>
