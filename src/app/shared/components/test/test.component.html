@@ -50,8 +50,8 @@
   </mat-form-field>
 
   <mat-card-actions class="buttons-and-budges">
-    <button mat-button color="primary" (click)="handleDefaultSuccess()">I know the word</button>
-    <button mat-button color="warn" (click)="handleDefaultError()">I don't know the word</button>
+    <button mat-button color="primary" class="success-color"(click)="handleDefaultSuccess()">I know the word</button>
+    <button mat-button color="warn" class="error-color" (click)="handleDefaultError()">I don't know the word</button>
     <span class="error">
       <mat-icon [matBadge]="errorCount" class="error-icon-color" matBadgeColor="warn">error</mat-icon>
     </span>
@@ -69,7 +69,7 @@
   <div class="header">{{ lastPreviousResult.translation }}</div>
   <mat-divider inset></mat-divider>
   <div class="content">
-    <div class="entered">➜ {{ lastPreviousResult.enteredValue }}</div>
+    <div class="entered">➜ {{ lastPreviousResult.enteredValue || '?' }}</div>
     <div class="answer">✔ {{ lastPreviousResult.correctValue }}</div>
     <div>
       <span [matBadge]="currentTestWords.length + (currentWord && 1 || 0)" matBadgeOverlap="false" matBadgeColor="primary">
