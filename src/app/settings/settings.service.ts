@@ -11,8 +11,10 @@ export class SettingsService {
     wordService: WordsService
   ) {
     if (this.getApplyFirstLoad()) {
-      const cache = cacheService.cacheBhvSubj.getValue();
-      wordService.setWords(JSON.parse(<any>cache[0].value));
+      const cache = cacheService.cacheBhvSubj.getValue() as any;
+      if (cache[0]?.value) {
+        wordService.setWords(JSON.parse(<any>cache[0].value));
+      }
     }
   }
 
