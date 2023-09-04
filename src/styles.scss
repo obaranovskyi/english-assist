@@ -4,8 +4,15 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
+  background: #f8f8ff;
   padding: 25px 400px;
+}
+
+@media only screen and (max-width: 1600px) {
+  body {
+    padding: 25px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
